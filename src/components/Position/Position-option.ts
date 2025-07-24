@@ -1,0 +1,1 @@
+export type PositionOption = "rock" | "paper" | "scissors";
