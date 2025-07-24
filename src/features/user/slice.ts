@@ -1,6 +1,6 @@
 import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
 import type { User } from "./types";
-import type { PositionOption } from "../../components/Position/Position-option";
+import type { PositionOption } from "../../components/Positions/Position/Position-option";
 
 interface UserState {
   user: User;

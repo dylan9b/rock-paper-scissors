@@ -1,21 +1,15 @@
-import Position from "./components/Position/Position";
-import type { PositionOption } from "./components/Position/Position-option";
-
-const positionOptions: PositionOption[] = ["rock", "paper", "scissors"];
+import Button from "./components/Button/Button";
+import Positions from "./components/Positions/Positions";
 
 function App() {
-  // const dispatch = useAppDispatch();
-
-  // useEffect(() => {
-  //   dispatch(ItemActions.add({ id: 1, name: "Learn Redux Toolkit" }));
-  // }, [dispatch]);
-
   return (
-    <div className="w-1/2">
-      <div className="flex flex-col md:flex-row items-center justify-center gap-4">
-        {positionOptions.map((option) => (
-          <Position key={option} variant={option} />
-        ))}
+    <div className="flex flex-col items-center justify-end p-16 md:p-24 gap-16 h-screen w-screen bg-linear-to-b from-neutral-600 to-neutral-900">
+      <div className="w-full flex flex-col md:flex-row items-center justify-center gap-4">
+        <Positions />
+      </div>
+
+      <div className="w-full md:w-40">
+        <Button label="play" />
       </div>
     </div>
   );
