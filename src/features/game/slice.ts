@@ -1,11 +1,11 @@
 import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
-import type { GameState, Winner } from "./types";
+import type { GameState } from "./types";
 import type { AppDispatch, RootState } from "../../store/store";
 import { balanceSelector, UserActions } from "../user";
 import { GameActions } from ".";
 import { ComputerActions } from "../computer";
-import { winsAgainst } from "../../utils/game.utils";
 import { userActions } from "../user/slice";
+import { evaluateGame } from "../../utils/evaluateGameResult";
 
 const initialState: GameState = {
   betIncrement: 500,
@@ -34,10 +34,13 @@ export const beginGameThunk = () => (dispatch: AppDispatch) => {
   dispatch(GameActions.setGame({ status: "playing" }));
   dispatch(ComputerActions.selectRandomOption());
 
-  setTimeout(() => {
+  // Wait some time until result is shown to the user
+  const timeoutId = setTimeout(() => {
     dispatch(GameActions.setGame({ status: "finished" }));
     dispatch(calculateWinnerThunk());
   }, 3000);
+
+  return timeoutId;
 };
 
 export const endGameThunk = () => (dispatch: AppDispatch) => {
@@ -53,39 +56,26 @@ export const calculateWinnerThunk =
     const userOptions = state.user.selectedOptions;
     const computerOption = state.computer.option;
     const userBalance = balanceSelector(state);
-    const { single, double } = state.game.winningMultiplier;
+    const multipliers = state.game.winningMultiplier;
 
     if (!computerOption || userOptions.length === 0) return;
 
-    const isDouble = userOptions.length === 2;
-    const multiplier = isDouble ? double : single;
+    const { winner, totalWinningAmount, isWin } = evaluateGame({
+      userOptions,
+      computerOption,
+      multipliers,
+    });
 
-    let totalWinningAmount = 0;
-    let hasWin = false;
-    let hasTie = false;
-
-    for (const option of userOptions) {
-      if (option.type === computerOption) {
-        // Tie — refund
-        totalWinningAmount += option.bet;
-        hasTie = true;
-      } else if (winsAgainst[option.type] === computerOption) {
-        // Win — apply multiplier
-        totalWinningAmount += option.bet * multiplier;
-        hasWin = true;
-
-        dispatch(userActions.addWin());
-      }
-      // else: loss — nothing added
+    if (isWin) {
+      dispatch(userActions.addWin());
     }
 
-    const updatedBalance = userBalance + totalWinningAmount;
+    dispatch(
+      UserActions.updateBalance({
+        balance: userBalance + totalWinningAmount,
+      })
+    );
 
-    let winner: Winner = "computer";
-    if (hasWin) winner = "player";
-    else if (hasTie) winner = "tie";
-
-    dispatch(UserActions.updateBalance({ balance: updatedBalance }));
     dispatch(UserActions.updateWinningAmount({ amount: totalWinningAmount }));
     dispatch(GameActions.setGame({ winner }));
   };

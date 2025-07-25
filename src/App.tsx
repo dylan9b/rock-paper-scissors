@@ -6,18 +6,29 @@ import Positions from "./components/Positions/Positions";
 import { useAppDispatch } from "./hooks/storeHooks";
 import { beginGameThunk, endGameThunk } from "./features/game/slice";
 import { gameStatusSelector } from "./features/game";
+import { useEffect, useRef } from "react";
 
 function App() {
   const dispatch = useAppDispatch();
   const gameStatus = useSelector(gameStatusSelector);
+  const timeoutRef = useRef<number | null>(null);
 
   const handleOnClick = () => {
     if (gameStatus === "idle") {
-      dispatch(beginGameThunk());
+      timeoutRef.current = dispatch(beginGameThunk());
     } else if (gameStatus === "finished") {
       dispatch(endGameThunk());
     }
   };
+
+  // On component destroy, we need to clear the timeout to avoid memory leaks
+  useEffect(() => {
+    return () => {
+      if (timeoutRef.current !== null) {
+        clearTimeout(timeoutRef.current);
+      }
+    };
+  }, []);
 
   return (
     <div className="flex flex-col h-screen">

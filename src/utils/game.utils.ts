@@ -1,3 +1,5 @@
+// Util variable which maps x beats y
+// ex: rock beats scissors
 export const winsAgainst = {
   rock: "scissors",
   paper: "rock",
