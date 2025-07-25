@@ -66,12 +66,8 @@ export default function Position({ option }: PositionProps) {
       type="button"
       onClick={() => handleOnOptionClick(option)}
       disabled={shouldOptionBeDisabled}
-      className={`transition-opacity duration-300 w-full h-40 md:w-80 md:h-35 flex flex-col justify-end items-center px-3 py-4 border-2 rounded-md uppercase text-2xl font-semibold ${text} ${borderColor} ${bgColor} 
-      ${
-        shouldOptionBeDisabled
-          ? "opacity-30 cursor-not-allowed"
-          : "cursor-pointer opacity-100"
-      }
+      className={`w-full h-40 md:w-80 md:h-35 flex flex-col justify-end items-center px-3 py-4 border-2 rounded-md uppercase text-2xl font-semibold ${text} ${borderColor} ${bgColor} 
+      ${shouldOptionBeDisabled ? "cursor-not-allowed" : "cursor-pointer"}
       `}
     >
       <span

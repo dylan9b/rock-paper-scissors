@@ -20,8 +20,10 @@ export const winningMultiplierSelector = createSelector(
   (state, userOptions) => {
     const multiplier =
       userOptions.length > 1
-        ? state.game.winningMultiplier.multiple
-        : state.game.winningMultiplier.single;
+        ? state.winningMultiplier.multiple
+        : state.winningMultiplier.single;
     return multiplier;
   }
 );
+
+export const gameStatusSelector = createSelector(gameState, (state) => state.status);

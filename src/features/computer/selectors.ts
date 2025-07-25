@@ -5,5 +5,5 @@ const selectComputerState = (state: RootState) => state.computer;
 
 export const selectedComputerOptionSelector = createSelector(
   selectComputerState,
-  (state) => state.computer.option
+  (state) => state.option
 );

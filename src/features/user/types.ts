@@ -5,7 +5,7 @@ export interface UserOption {
   bet: number;
 }
 
-export interface User {
+export interface UserState {
   balance: number;
   selectedOptions: UserOption[];
   wins: number;

@@ -1,31 +1,28 @@
 import { createSlice } from "@reduxjs/toolkit";
-import type { Computer } from "./types";
 import { positionOptions } from "../../components/Positions/Position/Position-option";
-
-interface ComputerState {
-  computer: Computer;
-}
+import type { ComputerState } from "./types";
 
 const initialState: ComputerState = {
-  computer: {
-    option: null,
-  },
+  option: null,
 };
 
 const computerSlice = createSlice({
   name: "computer",
   initialState,
   reducers: {
+    resetOption: (state) => {
+      return {
+        ...state,
+        option: null,
+      };
+    },
     selectRandomOption: (state) => {
       const idx = Math.floor(Math.random() * positionOptions.length);
       const randomOption = positionOptions[idx];
 
       return {
         ...state,
-        computer: {
-          ...state.computer,
-          option: randomOption,
-        },
+        option: randomOption,
       };
     },
   },

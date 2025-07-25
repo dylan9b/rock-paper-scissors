@@ -3,31 +3,30 @@ import Battle from "./components/Battle/Battle";
 import Button from "./components/Button/Button";
 import Header from "./components/Header/Header";
 import Positions from "./components/Positions/Positions";
-import {
-  ComputerActions,
-  selectedComputerOptionSelector,
-} from "./features/computer";
 import { useAppDispatch } from "./hooks/storeHooks";
-import { calculateWinnerThunk } from "./features/game/slice";
+import { beginGameThunk, endGameThunk } from "./features/game/slice";
+import { gameStatusSelector } from "./features/game";
 
 function App() {
   const dispatch = useAppDispatch();
-  const computerSelection = useSelector(selectedComputerOptionSelector);
+  const gameStatus = useSelector(gameStatusSelector);
 
-  const handleOnPlayClick = () => {
-    dispatch(ComputerActions.selectRandomOption());
-
-    setTimeout(() => {
-      dispatch(calculateWinnerThunk());
-    }, 3000);
+  const handleOnClick = () => {
+    if (gameStatus === "idle") {
+      dispatch(beginGameThunk());
+    } else if (gameStatus === "finished") {
+      dispatch(endGameThunk());
+    }
   };
 
   return (
-    <>
-      <Header />
+    <div className="flex flex-col h-screen">
+      <header>
+        <Header />
+      </header>
 
-      <div className="flex flex-col items-center justify-end p-16 md:p-24 h-screen w-screen bg-linear-to-b from-neutral-600 to-neutral-900">
-        {computerSelection && (
+      <main className="flex flex-col items-center justify-end p-16 xl:p-24 h-screen w-screen bg-linear-to-b from-neutral-600 to-neutral-900">
+        {gameStatus === "playing" && (
           <div className="mb-8">
             <Battle />
           </div>
@@ -39,14 +38,11 @@ function App() {
           <Positions />
         </div>
 
-        <div
-          className="flex items-center justify-center w-full"
-          onClick={handleOnPlayClick}
-        >
-          <Button label="play" />
+        <div className="flex items-center justify-center w-full">
+          <Button onClick={handleOnClick} />
         </div>
-      </div>
-    </>
+      </main>
+    </div>
   );
 }
 
