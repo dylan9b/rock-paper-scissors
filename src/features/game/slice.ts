@@ -79,8 +79,6 @@ export const calculateWinnerThunk =
       // else: loss — nothing added
     }
 
-    console.log("totalWinning", totalWinningAmount);
-
     const updatedBalance = userBalance + totalWinningAmount;
 
     let winner: Winner = "computer";
