@@ -18,3 +18,10 @@ export const balanceSelector = createSelector(
   selectUserState,
   (userState) => userState.user.balance
 );
+
+export const currentBetSelector = createSelector(selectUserState, (userState) =>
+  userState.user.selectedOptions.reduce(
+    (acc, option) => acc + (option.bet || 0),
+    0
+  )
+);

@@ -61,45 +61,31 @@ export default function Position({ option }: PositionProps) {
     }
   };
 
-  const handleOnDecreaseBet = (e: React.MouseEvent<HTMLSpanElement>) => {
-    e.stopPropagation();
-    if (selectedOption && selectedOption.bet > 500) {
-      option = {
-        ...option,
-        bet: selectedOption?.bet - 500,
-      };
-
-      dispatch(UserActions.updateOption(option));
-    }
-  };
   return (
     <button
       type="button"
       onClick={() => handleOnOptionClick(option)}
       disabled={shouldOptionBeDisabled}
-      className={`shadow-2xl transition-opacity duration-300 w-full md:w-40 flex flex-col justify-center items-center p-12 border-3 rounded-lg uppercase text-xl font-semibold ${text} ${borderColor} ${bgColor} 
+      className={`transition-opacity duration-300 w-full h-40 md:w-80 md:h-35 flex flex-col justify-end items-center px-3 py-4 border-2 rounded-md uppercase text-2xl font-semibold ${text} ${borderColor} ${bgColor} 
       ${
         shouldOptionBeDisabled
           ? "opacity-30 cursor-not-allowed"
           : "cursor-pointer opacity-100"
       }
-      ${selectedOption ? "shadow-current/60" : "shadow-current/0"}`}
+      `}
     >
-      <span className="flex flex-col items-center gap-4">
-        {option.bet && selectedOption && (
+      <span
+        className={`flex flex-col h-full items-center gap-4 ${
+          !selectedOption ? "justify-end" : "justify-between"
+        }`}
+      >
+        {selectedOption && (
           <div className="flex items-center gap-2">
             <span
-              onClick={(e) => handleOnDecreaseBet(e)}
-              className="flex rounded-full p-2 items-center justify-center size-4 border-2 border-current text-current"
+              onClick={handleOnIncreaseBet}
+              className="flex items-center justify-center bg-white text-black border-3 text-base rounded-full p-2 font-extrabold border-custom-blue-light-2 w-12 h-12"
             >
-              -
-            </span>
-            {selectedOption.bet}
-            <span
-              onClick={(e) => handleOnIncreaseBet(e)}
-              className="flex rounded-full p-2 items-center justify-center size-4 border-2 border-current text-current"
-            >
-              +
+              {selectedOption.bet}
             </span>
           </div>
         )}

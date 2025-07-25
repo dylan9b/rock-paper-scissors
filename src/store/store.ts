@@ -1,11 +1,13 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { itemReducer } from "../features/items/slice";
 import { userReducer } from "../features/user";
+import { computerReducer } from "../features/computer";
+import { gameReducer } from "../features/game/slice";
 
 export const store = configureStore({
   reducer: {
-    items: itemReducer,
     user: userReducer,
+    computer: computerReducer,
+    game: gameReducer,
   },
 });
 

@@ -7,9 +7,9 @@ interface UserState {
 
 const initialState: UserState = {
   user: {
-    hasWon: false,
     selectedOptions: [],
     balance: 5000,
+    wins: 0,
   },
 };
 

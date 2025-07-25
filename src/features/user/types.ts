@@ -6,8 +6,7 @@ export interface UserOption {
 }
 
 export interface User {
-  hasWon: boolean;
   balance: number;
-
   selectedOptions: UserOption[];
+  wins: number;
 }
