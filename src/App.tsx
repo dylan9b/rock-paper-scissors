@@ -25,22 +25,30 @@ function App() {
         <Header />
       </header>
 
-      <main className="flex flex-col items-center justify-end p-16 xl:p-24 h-screen w-screen bg-linear-to-b from-neutral-600 to-neutral-900">
-        <div className="w-full md:w-4/5 lg:w-3/5 xl:w-2/5">
-          {gameStatus === "playing" && (
+      <main className="flex flex-col items-center justify-end p-16 lg:px-24 lg:py-40 h-screen w-screen bg-linear-to-b from-neutral-600 to-neutral-900">
+        <div
+          className={`w-full md:w-4/5 lg:w-3/5 xl:w-2/5 flex-1 flex flex-col ${
+            gameStatus === "idle" ? "justify-end" : "justify-between"
+          }`}
+        >
+          {gameStatus !== "idle" && (
             <div className="mb-8">
               <Battle />
             </div>
           )}
-          <h2 className="uppercase font-bold text-base text-custom-gold mb-8 text-center">
-            Pick your positions
-          </h2>
-          <div className="w-full flex flex-col md:flex-row items-center justify-center gap-4 mb-16">
-            <Positions />
-          </div>
+          <div>
+            {gameStatus === "idle" && (
+              <h2 className="uppercase font-bold text-base text-custom-gold mb-8 text-center">
+                Pick your positions
+              </h2>
+            )}
+            <div className="w-full flex flex-col md:flex-row items-center justify-center gap-4 mb-16">
+              <Positions />
+            </div>
 
-          <div className="flex items-center justify-center w-full">
-            <Button onClick={handleOnClick} />
+            <div className="flex items-center justify-center w-full">
+              <Button onClick={handleOnClick} />
+            </div>
           </div>
         </div>
       </main>

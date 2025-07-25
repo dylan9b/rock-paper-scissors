@@ -27,3 +27,8 @@ export const winsSelector = createSelector(
   selectUserState,
   (userState) => userState.wins
 );
+
+export const winningAmountSelector = createSelector(
+  selectUserState,
+  (userState) => userState.winningAmount
+);

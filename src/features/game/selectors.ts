@@ -2,14 +2,18 @@ import { createSelector } from "@reduxjs/toolkit";
 import { selectedComputerOptionSelector } from "../computer";
 import { selectedOptionsSelector } from "../user";
 import type { RootState } from "../../store/store";
+import { winsAgainst } from "../../utils/game.utils";
 
 export const winningOptionSelector = createSelector(
   [selectedOptionsSelector, selectedComputerOptionSelector],
   (userOptions, computerOption) => {
-    return (
-      computerOption !== null &&
-      userOptions.find((option) => option.type === computerOption)?.type
+    if (!computerOption) return null;
+
+    const winningUserOption = userOptions.find(
+      (option) => winsAgainst[option.type] === computerOption
     );
+
+    return winningUserOption?.type ?? null;
   }
 );
 
@@ -29,4 +33,9 @@ export const winningMultiplierSelector = createSelector(
 export const gameStatusSelector = createSelector(
   gameState,
   (state) => state.status
+);
+
+export const gameWinnerSelector = createSelector(
+  gameState,
+  (state) => state.winner
 );

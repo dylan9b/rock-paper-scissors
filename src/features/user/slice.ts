@@ -5,6 +5,7 @@ const initialState: UserState = {
   selectedOptions: [],
   balance: 5000,
   wins: 0,
+  winningAmount: 0,
 };
 
 const userSlice = createSlice({
@@ -14,7 +15,7 @@ const userSlice = createSlice({
     addWin: (state) => {
       return {
         ...state,
-        wins: state.wins++,
+        wins: state.wins + 1,
       };
     },
     addOption: (state, action: PayloadAction<UserOption>) => {
@@ -67,6 +68,13 @@ const userSlice = createSlice({
       return {
         ...state,
         balance: action.payload.balance,
+      };
+    },
+
+    updateWinningAmount: (state, action: PayloadAction<{ amount: number }>) => {
+      return {
+        ...state,
+        winningAmount: action.payload.amount,
       };
     },
   },

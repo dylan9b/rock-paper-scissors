@@ -9,4 +9,5 @@ export interface UserState {
   balance: number;
   selectedOptions: UserOption[];
   wins: number;
+  winningAmount: number;
 }
