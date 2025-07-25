@@ -1,6 +1,5 @@
 import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
-import type { User } from "./types";
-import type { PositionOption } from "../../components/Positions/Position/Position-option";
+import type { User, UserOption } from "./types";
 
 interface UserState {
   user: User;
@@ -18,24 +17,63 @@ const userSlice = createSlice({
   name: "user",
   initialState,
   reducers: {
-    addOption: (state, action: PayloadAction<PositionOption>) => {
+    addOption: (state, action: PayloadAction<UserOption>) => {
       return {
         ...state,
         user: {
           ...state.user,
           selectedOptions: [...state.user.selectedOptions, action.payload],
+          balance: state.user.balance - action.payload.bet,
         },
       };
     },
 
-    removeOption: (state, action: PayloadAction<PositionOption>) => {
+    removeOption: (state, action: PayloadAction<UserOption>) => {
       return {
         ...state,
         user: {
           ...state.user,
           selectedOptions: state.user.selectedOptions.filter(
-            (option) => option !== action.payload
+            (option) => option.type !== action.payload.type
           ),
+          balance: state.user.balance + action.payload.bet,
+        },
+      };
+    },
+
+    updateOption: (state, action: PayloadAction<UserOption>) => {
+      const { type, bet: newBet } = action.payload;
+      const user = state.user;
+
+      if (!user) return state;
+
+      const selectedOption = user.selectedOptions.find(
+        (option) => option.type === type
+      );
+
+      if (!selectedOption) return state;
+
+      const oldBet = selectedOption.bet;
+      const betDifference = newBet - oldBet;
+
+      return {
+        ...state,
+        user: {
+          ...user,
+          selectedOptions: user.selectedOptions.map((option) =>
+            option.type === type ? { ...option, bet: newBet } : option
+          ),
+          balance: user.balance - betDifference,
+        },
+      };
+    },
+
+    updateBalance: (state, action: PayloadAction<{ balance: number }>) => {
+      return {
+        ...state,
+        user: {
+          ...state.user,
+          balance: action.payload.balance,
         },
       };
     },

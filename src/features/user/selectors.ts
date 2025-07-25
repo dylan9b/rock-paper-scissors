@@ -1,17 +1,20 @@
 import { createSelector } from "@reduxjs/toolkit";
 import type { RootState } from "../../store/store";
-import type { Variant } from "../../components/Positions/Position/Position-styles";
+import type { PositionOption } from "../../components/Positions/Position/Position-option";
 
 const selectUserState = (state: RootState) => state.user;
 
-export const selectedOptions = createSelector(
+export const selectedOptionsSelector = createSelector(
   selectUserState,
   (userState) => userState.user?.selectedOptions
 );
 
-export const isOptionSelected = (variant: Variant) =>
-  createSelector(
-    selectUserState,
-    (userState) =>
-      !!userState.user?.selectedOptions.find((option) => option === variant)
+export const selectedOptionSelector = (type: PositionOption) =>
+  createSelector(selectUserState, (userState) =>
+    userState.user?.selectedOptions.find((option) => option.type === type)
   );
+
+export const balanceSelector = createSelector(
+  selectUserState,
+  (userState) => userState.user.balance
+);
