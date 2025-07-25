@@ -39,3 +39,8 @@ export const gameWinnerSelector = createSelector(
   gameState,
   (state) => state.winner
 );
+
+export const gameBetIncrementSelector = createSelector(
+  gameState,
+  (state) => state.betIncrement
+);
