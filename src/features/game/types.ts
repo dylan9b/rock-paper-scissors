@@ -6,7 +6,7 @@ export interface GameState {
   winner: Winner | null;
   winningMultiplier: {
     single: number;
-    multiple: number;
+    double: number;
   };
   status: Status;
 }

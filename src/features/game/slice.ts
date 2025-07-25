@@ -11,8 +11,8 @@ const initialState: GameState = {
   winner: null,
   status: "idle",
   winningMultiplier: {
-    multiple: 3,
     single: 14,
+    double: 3,
   },
 };
 
