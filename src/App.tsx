@@ -4,7 +4,12 @@ import Button from "./components/Button/Button";
 import Header from "./components/Header/Header";
 import Positions from "./components/Positions/Positions";
 import { useAppDispatch } from "./hooks/storeHooks";
-import { beginGameThunk, endGameThunk } from "./features/game/slice";
+import {
+  beginGameThunk,
+  calculateWinnerThunk,
+  endGameThunk,
+  gameActions,
+} from "./features/game/slice";
 import { gameStatusSelector } from "./features/game";
 import { useEffect, useRef } from "react";
 
@@ -13,9 +18,17 @@ function App() {
   const gameStatus = useSelector(gameStatusSelector);
   const timeoutRef = useRef<number | null>(null);
 
+  const handleStart = () => {
+    dispatch(beginGameThunk());
+    timeoutRef.current = window.setTimeout(() => {
+      dispatch(gameActions.setGame({ status: "finished" }));
+      dispatch(calculateWinnerThunk());
+    }, 3000);
+  };
+
   const handleOnClick = () => {
     if (gameStatus === "idle") {
-      timeoutRef.current = dispatch(beginGameThunk());
+      handleStart();
     } else if (gameStatus === "finished") {
       dispatch(endGameThunk());
     }

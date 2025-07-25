@@ -33,14 +33,6 @@ const gameSlice = createSlice({
 export const beginGameThunk = () => (dispatch: AppDispatch) => {
   dispatch(GameActions.setGame({ status: "playing" }));
   dispatch(ComputerActions.selectRandomOption());
-
-  // Wait some time until result is shown to the user
-  const timeoutId = setTimeout(() => {
-    dispatch(GameActions.setGame({ status: "finished" }));
-    dispatch(calculateWinnerThunk());
-  }, 3000);
-
-  return timeoutId;
 };
 
 export const endGameThunk = () => (dispatch: AppDispatch) => {
