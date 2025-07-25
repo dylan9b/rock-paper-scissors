@@ -28,7 +28,7 @@ export default function Button({ onClick }: ButtonProps) {
       disabled={disabled}
       onClick={onClick}
       type="button"
-      className={`w-full md:flex-[0.08] bg-custom-black rounded-full text-xl uppercase px-8 py-4 border-2 text-custom-gold font-semibold border-custom-gold
+      className={`w-full flex-1 md:flex-[0.26] bg-custom-black rounded-full text-xl uppercase px-8 py-4 border-2 text-custom-gold font-semibold border-custom-gold
         ${
           disabled
             ? "opacity-50 cursor-not-allowed"
