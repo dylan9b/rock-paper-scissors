@@ -10,12 +10,12 @@ import {
   endGameThunk,
   gameActions,
 } from "./features/game/slice";
-import { gameStatusSelector } from "./features/game";
 import { useEffect, useRef } from "react";
+import { gameMetaSelector } from "./features/game";
 
 function App() {
   const dispatch = useAppDispatch();
-  const gameStatus = useSelector(gameStatusSelector);
+  const { status } = useSelector(gameMetaSelector);
   const timeoutRef = useRef<number | null>(null);
 
   const handleStart = () => {
@@ -27,9 +27,9 @@ function App() {
   };
 
   const handleOnClick = () => {
-    if (gameStatus === "idle") {
+    if (status === "idle") {
       handleStart();
-    } else if (gameStatus === "finished") {
+    } else if (status === "finished") {
       dispatch(endGameThunk());
     }
   };
@@ -52,16 +52,16 @@ function App() {
       <main className="flex flex-col items-center justify-end p-16 lg:px-24 lg:py-40 h-screen w-screen bg-linear-to-b from-neutral-600 to-neutral-900">
         <div
           className={`w-full md:w-4/5 lg:w-3/5 xl:w-2/5 flex-1 flex flex-col ${
-            gameStatus === "idle" ? "justify-end" : "justify-between"
+            status === "idle" ? "justify-end" : "justify-between"
           }`}
         >
-          {gameStatus !== "idle" && (
+          {status !== "idle" && (
             <div className="mb-8">
               <Battle />
             </div>
           )}
           <div>
-            {gameStatus === "idle" && (
+            {status === "idle" && (
               <h2 className="uppercase font-bold text-base text-custom-gold mb-8 text-center">
                 Pick your positions
               </h2>

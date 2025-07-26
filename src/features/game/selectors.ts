@@ -7,13 +7,50 @@ import { winsAgainst } from "../../utils/game.utils";
 export const winningOptionSelector = createSelector(
   [selectedOptionsSelector, selectedComputerOptionSelector],
   (userOptions, computerOption) => {
-    if (!computerOption) return null;
+    if (!computerOption) {
+      return null;
+    }
 
     const winningUserOption = userOptions.find(
       (option) => winsAgainst[option.type] === computerOption
     );
 
     return winningUserOption?.type ?? null;
+  }
+);
+
+export const tieOptionSelector = createSelector(
+  [selectedOptionsSelector, selectedComputerOptionSelector],
+  (userOptions, computerOption) => {
+    if (!computerOption) {
+      return null;
+    }
+
+    const tieUserOption = userOptions.find(
+      (option) => option.type === computerOption
+    );
+
+    return tieUserOption?.type ?? null;
+  }
+);
+
+export const userBattleChoiceDisplaySelector = createSelector(
+  [
+    selectedOptionsSelector,
+    selectedComputerOptionSelector,
+    winningOptionSelector,
+    tieOptionSelector,
+  ],
+  (userOptions, computerOption, winningOption, tieOption) => {
+    if (!computerOption) {
+      return null;
+    }
+
+    if (userOptions.length === 1) {
+      return userOptions[0].type;
+    }
+
+    return winningOption ?? tieOption;
   }
 );
 
@@ -30,17 +67,8 @@ export const winningMultiplierSelector = createSelector(
   }
 );
 
-export const gameStatusSelector = createSelector(
-  gameState,
-  (state) => state.status
-);
-
-export const gameWinnerSelector = createSelector(
-  gameState,
-  (state) => state.winner
-);
-
-export const gameBetIncrementSelector = createSelector(
-  gameState,
-  (state) => state.betIncrement
-);
+export const gameMetaSelector = createSelector(gameState, (state) => ({
+  status: state.status,
+  winner: state.winner,
+  betIncrement: state.betIncrement,
+}));

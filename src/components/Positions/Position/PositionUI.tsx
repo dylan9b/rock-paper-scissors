@@ -9,6 +9,7 @@ type PositionUIProps = {
     text: string;
     borderColor: string;
     bgColor: string;
+    winClass: string;
   };
 };
 
@@ -31,8 +32,8 @@ export function PositionUI({
         ${isDisabled ? "cursor-not-allowed" : "cursor-pointer"}
         ${
           isWinner
-            ? `border-4 ${styles.borderColor}`
-            : `border-2 ${styles.borderColor}/30`
+            ? `border-4 ${styles.winClass}`
+            : `border-2 ${styles.borderColor}`
         }
       `}
     >

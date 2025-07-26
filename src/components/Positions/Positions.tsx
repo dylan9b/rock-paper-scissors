@@ -1,11 +1,11 @@
 import { useSelector } from "react-redux";
-import { gameBetIncrementSelector } from "../../features/game";
+import { gameMetaSelector } from "../../features/game";
 import { useMemo } from "react";
 import type { UserOption } from "../../features/user";
 import { Position } from "./Position/Position";
 
 export default function Positions() {
-  const betIncrement = useSelector(gameBetIncrementSelector);
+  const { betIncrement } = useSelector(gameMetaSelector);
 
   const positionOptions = useMemo<UserOption[]>(
     () => [

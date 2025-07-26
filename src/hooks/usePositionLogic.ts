@@ -1,11 +1,7 @@
 import { useMemo, useCallback } from "react";
 import { useSelector } from "react-redux";
 import { variantStyles } from "../components/Positions/Position/Position-styles";
-import {
-  winningOptionSelector,
-  gameStatusSelector,
-  gameBetIncrementSelector,
-} from "../features/game";
+import { winningOptionSelector, gameMetaSelector } from "../features/game";
 import {
   type UserOption,
   selectedOptionsSelector,
@@ -22,21 +18,21 @@ export function usePositionLogic(option: UserOption) {
   const selectedOption = useSelector(selectedOptionSelector(option.type));
   const winningOption = useSelector(winningOptionSelector);
   const balance = useSelector(balanceSelector);
-  const gameStatus = useSelector(gameStatusSelector);
-  const betIncrement = useSelector(gameBetIncrementSelector);
+
+  const { status, betIncrement } = useSelector(gameMetaSelector);
 
   const shouldOptionBeDisabled = useMemo(() => {
     return (
       (balance > 0 && totalOptionsSelected === 2 && !selectedOption) ||
       (balance === 0 && !selectedOption) ||
-      gameStatus !== "idle"
+      status !== "idle"
     );
-  }, [balance, totalOptionsSelected, selectedOption, gameStatus]);
+  }, [balance, totalOptionsSelected, selectedOption, status]);
 
   const shouldHighlightWinner =
-    winningOption === option.type && gameStatus === "finished";
+    winningOption === option.type && status === "finished";
 
-  const { text, borderColor, bgColor } = variantStyles[option.type];
+  const { text, borderColor, bgColor, winClass } = variantStyles[option.type];
 
   const onAddOption = useCallback(() => {
     dispatch(UserActions.addOption(option));
@@ -75,6 +71,6 @@ export function usePositionLogic(option: UserOption) {
     isWinner: shouldHighlightWinner,
     onClick,
     onIncreaseBet,
-    styles: { text, borderColor, bgColor },
+    styles: { text, borderColor, bgColor, winClass },
   };
 }

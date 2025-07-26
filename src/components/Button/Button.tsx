@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 import { currentBetSelector } from "../../features/user";
-import { gameStatusSelector } from "../../features/game";
+import { gameMetaSelector } from "../../features/game";
 
 interface ButtonProps {
   onClick: () => void;
@@ -8,10 +8,10 @@ interface ButtonProps {
 
 export default function Button({ onClick }: ButtonProps) {
   const currentBet = useSelector(currentBetSelector);
-  const gameStatus = useSelector(gameStatusSelector);
+  const { status } = useSelector(gameMetaSelector);
 
   const getLabel = () => {
-    switch (gameStatus) {
+    switch (status) {
       case "idle":
         return "Play";
       case "finished":
@@ -21,7 +21,7 @@ export default function Button({ onClick }: ButtonProps) {
     }
   };
 
-  const disabled = currentBet === 0 || gameStatus === "playing";
+  const disabled = currentBet === 0 || status === "playing";
 
   return (
     <button
