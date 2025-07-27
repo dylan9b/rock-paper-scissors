@@ -1,8 +1,11 @@
 import { useSelector } from "react-redux";
-import { gameMetaSelector, winningOptionSelector } from "../../features/game";
-import BattleResultTie from "./BattleResultTie";
 import BattleResultComputer from "./BattleResultComputer";
 import BattleResultPlayer from "./BattleResultPlayer";
+import BattleResultTie from "./BattleResultTie";
+import {
+  winningOptionSelector,
+  gameMetaSelector,
+} from "../../../features/game";
 
 export default function BattleResult() {
   const winningOption = useSelector(winningOptionSelector);
