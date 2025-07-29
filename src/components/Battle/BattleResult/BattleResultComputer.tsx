@@ -1,11 +1,8 @@
 import { useSelector } from "react-redux";
-import { selectedComputerOptionSelector } from "../../../features/computer";
-import {
-  winningOptionSelector,
-  gameMetaSelector,
-} from "../../../features/game";
-import { currentBetSelector } from "../../../features/user";
-import { winnerLabel } from "../../../utils/game.utils";
+import { selectedComputerOptionSelector } from "@features/computer";
+import { winningOptionSelector, gameMetaSelector } from "@features/game";
+import { currentBetSelector } from "@features/user";
+import { winnerLabel } from "@utils/game.utils";
 
 export default function BattleResultComputer() {
   const winningOption = useSelector(winningOptionSelector);

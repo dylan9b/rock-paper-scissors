@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
-import { selectedComputerOptionSelector } from "../../features/computer";
-import { userBattleChoiceDisplaySelector } from "../../features/game";
+import { selectedComputerOptionSelector } from "@features/computer";
+import { userBattleChoiceDisplaySelector } from "@features/game";
 
 export default function BattlePlay() {
   const computerSelection = useSelector(selectedComputerOptionSelector);

@@ -1,5 +1,5 @@
-import { winsAgainst } from "../utils/game.utils";
-import type { Winner } from "../features/game/types";
+import { winsAgainst } from "@utils/game.utils";
+import type { Winner } from "@features/game/types";
 
 type OptionType = keyof typeof winsAgainst;
 

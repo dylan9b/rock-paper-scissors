@@ -1,7 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { userReducer } from "../features/user";
-import { computerReducer } from "../features/computer";
-import { gameReducer } from "../features/game/slice";
+import { userReducer } from "@features/user";
+import { computerReducer } from "@features/computer";
+import { gameReducer } from "@features/game/slice";
 
 export const store = configureStore({
   reducer: {

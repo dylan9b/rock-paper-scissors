@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
-import { currentBetSelector } from "../../features/user";
-import { gameMetaSelector } from "../../features/game";
+import { currentBetSelector } from "@features/user";
+import { gameMetaSelector } from "@features/game";
 
 interface ButtonProps {
   onClick: () => void;

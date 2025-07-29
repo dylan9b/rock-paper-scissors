@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import { winningAmountSelector } from "../../../features/user";
+import { winningAmountSelector } from "@features/user";
 
 export default function BattleResultTie() {
   const winningAmount = useSelector(winningAmountSelector);

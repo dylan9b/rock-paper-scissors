@@ -4,9 +4,9 @@ import {
   balanceSelector,
   currentBetSelector,
   winsSelector,
-} from "../../features/user";
+} from "@features/user";
 import HeaderItem from "./Header-item/Header-item";
-import { gameMetaSelector } from "../../features/game";
+import { gameMetaSelector } from "@features/game";
 
 export default function Header() {
   const userBalance = useSelector(balanceSelector);

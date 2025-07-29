@@ -1,6 +1,6 @@
-import type { UserOption } from "../../../features/user";
+import type { UserOption } from "@features/user";
 import { PositionUI } from "./PositionUI";
-import { usePositionLogic } from "../../../hooks/usePositionLogic";
+import { usePositionLogic } from "@hooks/usePositionLogic";
 
 type PositionProps = {
   option: UserOption;

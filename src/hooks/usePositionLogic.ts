@@ -1,14 +1,14 @@
 import { useMemo, useCallback } from "react";
 import { useSelector } from "react-redux";
-import { variantStyles } from "../components/Positions/Position/Position-styles";
-import { winningOptionSelector, gameMetaSelector } from "../features/game";
+import { variantStyles } from "@components/Positions/Position/Position-styles";
+import { winningOptionSelector, gameMetaSelector } from "@features/game";
 import {
   type UserOption,
   selectedOptionsSelector,
   selectedOptionSelector,
   balanceSelector,
   UserActions,
-} from "../features/user";
+} from "@features/user";
 import { useAppDispatch } from "./storeHooks";
 
 export function usePositionLogic(option: UserOption) {

@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
-import { gameMetaSelector } from "../../features/game";
 import BattlePlay from "./BattlePlay";
 import BattleResult from "./BattleResult/BattleResult";
+import { gameMetaSelector } from "@features/game";
 
 export default function Battle() {
   const { status } = useSelector(gameMetaSelector);

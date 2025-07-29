@@ -5,7 +5,7 @@ import BattleResultTie from "./BattleResultTie";
 import {
   winningOptionSelector,
   gameMetaSelector,
-} from "../../../features/game";
+} from "@features/game";
 
 export default function BattleResult() {
   const winningOption = useSelector(winningOptionSelector);

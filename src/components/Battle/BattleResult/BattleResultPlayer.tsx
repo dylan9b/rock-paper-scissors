@@ -1,10 +1,7 @@
 import { useSelector } from "react-redux";
-import {
-  winningOptionSelector,
-  gameMetaSelector,
-} from "../../../features/game";
-import { winningAmountSelector } from "../../../features/user";
-import { winnerLabel } from "../../../utils/game.utils";
+import { winningOptionSelector, gameMetaSelector } from "@features/game";
+import { winningAmountSelector } from "@features/user";
+import { winnerLabel } from "@utils/game.utils";
 
 export default function BattleResultPlayer() {
   const winningOption = useSelector(winningOptionSelector);

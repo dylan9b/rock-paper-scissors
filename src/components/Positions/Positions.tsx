@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
-import { gameMetaSelector } from "../../features/game";
+import { gameMetaSelector } from "@features/game";
 import { useMemo } from "react";
-import type { UserOption } from "../../features/user";
+import type { UserOption } from "@features/user";
 import { Position } from "./Position/Position";
 
 export default function Positions() {
