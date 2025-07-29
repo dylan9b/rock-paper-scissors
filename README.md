@@ -68,3 +68,19 @@ export default tseslint.config([
 ])
 ```
 # rock-paper-scissors
+
+#Screenshots
+## Game Interaction
+<img width="1168" height="833" alt="image" src="https://github.com/user-attachments/assets/998be512-87c2-4891-8672-13da1474c35c" />
+<img width="940" height="808" alt="image" src="https://github.com/user-attachments/assets/02af8dba-d1ce-4122-ad32-d7ead8f81634" />
+<img width="944" height="785" alt="image" src="https://github.com/user-attachments/assets/03e347f4-5b76-45bb-b177-bc8acb1fde14" />
+<img width="789" height="783" alt="image" src="https://github.com/user-attachments/assets/f1f3c935-123a-44a1-bf07-4a5ae18fc034" />
+
+## Redux State Management
+<img width="450" height="356" alt="image" src="https://github.com/user-attachments/assets/1ea1a151-52a2-45cb-942b-7672380f6fba" />
+
+## Mobile View
+<img width="494" height="619" alt="image" src="https://github.com/user-attachments/assets/ebbade48-5dcb-409d-9f54-1b9eb78d3bef" />
+
+
+
