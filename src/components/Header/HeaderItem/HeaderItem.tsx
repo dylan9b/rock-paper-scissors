@@ -1,5 +1,5 @@
 import { memo } from "react";
-import type { HeaderItemModel } from "./header-item.model";
+import type { HeaderItemModel } from "./HeadrItem.model";
 
 function HeaderItem({ label, value }: HeaderItemModel) {
   return (

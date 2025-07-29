@@ -5,7 +5,7 @@ import {
   currentBetSelector,
   winsSelector,
 } from "@features/user";
-import HeaderItem from "./Header-item/Header-item";
+import HeaderItem from "./HeaderItem/HeaderItem";
 import { gameMetaSelector } from "@features/game";
 
 export default function Header() {

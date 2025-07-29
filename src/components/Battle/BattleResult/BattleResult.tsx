@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
-import BattleResultComputer from "./BattleResultComputer";
-import BattleResultPlayer from "./BattleResultPlayer";
-import BattleResultTie from "./BattleResultTie";
+import BattleResultComputer from "./BattleResultVariants/BattleResultComputer";
+import BattleResultPlayer from "./BattleResultVariants/BattleResultPlayer";
+import BattleResultTie from "./BattleResultVariants/BattleResultTie";
 import {
   winningOptionSelector,
   gameMetaSelector,
