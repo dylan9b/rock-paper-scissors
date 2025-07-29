@@ -2,6 +2,8 @@ import { useSelector } from "react-redux";
 import { winningOptionSelector, gameMetaSelector } from "@features/game";
 import { winningAmountSelector } from "@features/user";
 import { winnerLabel } from "@utils/game.utils";
+import BattleResultTitle from "./BattleResult-Title";
+import BattleResultSubtitle from "./BattleResult-Subtitle";
 
 export default function BattleResultPlayer() {
   const winningOption = useSelector(winningOptionSelector);
@@ -10,13 +12,12 @@ export default function BattleResultPlayer() {
 
   return (
     <>
-      <h1 className="text-3xl md:text-7xl text-custom-green-light-1">
-        {winningOption} won
-      </h1>
-      <h2 className="text-custom-gold text-2xl">
+      <BattleResultTitle>{winningOption} won</BattleResultTitle>
+
+      <BattleResultSubtitle>
         {winnerLabel[winner ?? "tie"]} win{" "}
         <span className="text-white">{winningAmount}</span>
-      </h2>
+      </BattleResultSubtitle>
     </>
   );
 }
