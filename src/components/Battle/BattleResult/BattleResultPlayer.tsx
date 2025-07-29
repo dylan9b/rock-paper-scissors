@@ -10,10 +10,10 @@ export default function BattleResultPlayer() {
 
   return (
     <>
-      <h1 className="text-7xl text-custom-green-light-1">
+      <h1 className="text-3xl md:text-7xl text-custom-green-light-1">
         {winningOption} won
       </h1>
-      <h2 className="text-custom-gold text-4xl">
+      <h2 className="text-custom-gold text-2xl">
         {winnerLabel[winner ?? "tie"]} win{" "}
         <span className="text-white">{winningAmount}</span>
       </h2>

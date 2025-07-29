@@ -12,10 +12,10 @@ export default function BattleResultComputer() {
 
   return (
     <>
-      <h1 className="text-7xl text-custom-green-light-1">
+      <h1 className="text-3xl md:text-7xl text-custom-green-light-1">
         {winningOption ?? computerOption} won
       </h1>
-      <h2 className="text-custom-gold text-4xl">
+      <h2 className="text-custom-gold text-2xl md:text-4xl">
         {winnerLabel[winner ?? "tie"]} wins{" "}
         <span className="text-white">{currentBet}</span>
       </h2>

@@ -49,7 +49,7 @@ function App() {
         <Header />
       </header>
 
-      <main className="flex flex-col items-center justify-end p-16 lg:px-24 lg:py-40 h-screen w-screen bg-linear-to-b from-neutral-600 to-neutral-900">
+      <main className="block overflow-auto md:flex md:flex-col items-center justify-end p-16 lg:px-24 lg:py-40 h-screen w-screen bg-linear-to-b from-neutral-600 to-neutral-900">
         <div
           className={`w-full md:w-4/5 lg:w-3/5 xl:w-2/5 flex-1 flex flex-col ${
             status === "idle" ? "justify-end" : "justify-between"
