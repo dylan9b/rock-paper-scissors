@@ -64,14 +64,20 @@ const userSlice = createSlice({
       };
     },
 
-    updateBalance: (state, action: PayloadAction<{ balance: number }>) => {
+    updateBalance: (
+      state,
+      action: PayloadAction<{ balance: UserState["balance"] }>
+    ) => {
       return {
         ...state,
         balance: action.payload.balance,
       };
     },
 
-    updateWinningAmount: (state, action: PayloadAction<{ amount: number }>) => {
+    updateWinningAmount: (
+      state,
+      action: PayloadAction<{ amount: UserState["winningAmount"] }>
+    ) => {
       return {
         ...state,
         winningAmount: action.payload.amount,
