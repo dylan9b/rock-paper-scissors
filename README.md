@@ -82,5 +82,12 @@ export default tseslint.config([
 ## Mobile View
 <img width="494" height="619" alt="image" src="https://github.com/user-attachments/assets/ebbade48-5dcb-409d-9f54-1b9eb78d3bef" />
 
+## Build
+<img width="565" height="230" alt="image" src="https://github.com/user-attachments/assets/18dca13b-6f97-41ef-8bea-159ff18a5269" />
+
+## Mimic Prod environment locally
+<img width="687" height="752" alt="image" src="https://github.com/user-attachments/assets/263b5b75-e347-48fc-b221-0c9140ec7c8b" />
+
+
 
 
