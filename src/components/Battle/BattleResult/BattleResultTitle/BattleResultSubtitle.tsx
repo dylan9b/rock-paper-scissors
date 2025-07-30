@@ -1,4 +1,4 @@
-import type { BattleResultTextModel } from "./BattleResultText.model";
+import type { BattleResultTextModel } from "../BattleResultText.model";
 
 export default function BattleResultSubtitle({
   children,

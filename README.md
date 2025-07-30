@@ -69,7 +69,7 @@ export default tseslint.config([
 ```
 # rock-paper-scissors
 
-#Screenshots
+# Screenshots
 ## Game Interaction
 <img width="1168" height="833" alt="image" src="https://github.com/user-attachments/assets/998be512-87c2-4891-8672-13da1474c35c" />
 <img width="940" height="808" alt="image" src="https://github.com/user-attachments/assets/02af8dba-d1ce-4122-ad32-d7ead8f81634" />
@@ -88,6 +88,10 @@ export default tseslint.config([
 ## Mimic Prod environment locally
 <img width="687" height="752" alt="image" src="https://github.com/user-attachments/assets/263b5b75-e347-48fc-b221-0c9140ec7c8b" />
 
+# Generic Use
+Clicking anywhere on a position (Rock/Paper/Scissors) automatically adds a bet of 500. Toggling a position is done by clicking anywhere on the position (except the bet). Any bets set for that position are lost.
+
+Bet can only be increased when position is selected and user clicks on the bet for that position. Increments are only done in multiple of 500.
 
 
 
