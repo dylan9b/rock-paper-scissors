@@ -13,9 +13,9 @@ If you are developing a production application, we recommend updating the config
 
 ```js
 export default tseslint.config([
-  globalIgnores(['dist']),
+  globalIgnores(["dist"]),
   {
-    files: ['**/*.{ts,tsx}'],
+    files: ["**/*.{ts,tsx}"],
     extends: [
       // Other configs...
 
@@ -30,68 +30,77 @@ export default tseslint.config([
     ],
     languageOptions: {
       parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
+        project: ["./tsconfig.node.json", "./tsconfig.app.json"],
         tsconfigRootDir: import.meta.dirname,
       },
       // other options...
     },
   },
-])
+]);
 ```
 
 You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
 
 ```js
 // eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+import reactX from "eslint-plugin-react-x";
+import reactDom from "eslint-plugin-react-dom";
 
 export default tseslint.config([
-  globalIgnores(['dist']),
+  globalIgnores(["dist"]),
   {
-    files: ['**/*.{ts,tsx}'],
+    files: ["**/*.{ts,tsx}"],
     extends: [
       // Other configs...
       // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
+      reactX.configs["recommended-typescript"],
       // Enable lint rules for React DOM
       reactDom.configs.recommended,
     ],
     languageOptions: {
       parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
+        project: ["./tsconfig.node.json", "./tsconfig.app.json"],
         tsconfigRootDir: import.meta.dirname,
       },
       // other options...
     },
   },
-])
+]);
 ```
+
 # rock-paper-scissors
 
 # Screenshots
+
 ## Game Interaction
+
 <img width="1168" height="833" alt="image" src="https://github.com/user-attachments/assets/998be512-87c2-4891-8672-13da1474c35c" />
 <img width="940" height="808" alt="image" src="https://github.com/user-attachments/assets/02af8dba-d1ce-4122-ad32-d7ead8f81634" />
 <img width="944" height="785" alt="image" src="https://github.com/user-attachments/assets/03e347f4-5b76-45bb-b177-bc8acb1fde14" />
 <img width="789" height="783" alt="image" src="https://github.com/user-attachments/assets/f1f3c935-123a-44a1-bf07-4a5ae18fc034" />
 
 ## Redux State Management
+
 <img width="450" height="356" alt="image" src="https://github.com/user-attachments/assets/1ea1a151-52a2-45cb-942b-7672380f6fba" />
 
 ## Mobile View
+
 <img width="494" height="619" alt="image" src="https://github.com/user-attachments/assets/ebbade48-5dcb-409d-9f54-1b9eb78d3bef" />
 
+## Lint
+
+<img width="545" height="89" alt="image" src="https://github.com/user-attachments/assets/23bc86ce-722a-4a2b-a2a7-a52bde14
+
 ## Build
+
 <img width="565" height="230" alt="image" src="https://github.com/user-attachments/assets/18dca13b-6f97-41ef-8bea-159ff18a5269" />
 
 ## Mimic Prod environment locally
+
 <img width="687" height="752" alt="image" src="https://github.com/user-attachments/assets/263b5b75-e347-48fc-b221-0c9140ec7c8b" />
 
 # Generic Use
+
 Clicking anywhere on a position (Rock/Paper/Scissors) automatically adds a bet of 500. Toggling a position is done by clicking anywhere on the position (except the bet). Any bets set for that position are lost.
 
 Bet can only be increased when position is selected and user clicks on the bet for that position. Increments are only done in multiple of 500.
-
-
-
