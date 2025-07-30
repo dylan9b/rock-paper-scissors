@@ -8,20 +8,26 @@
     "module": "ESNext",
     "skipLibCheck": true,
 
-    /* Bundler mode */
     "moduleResolution": "bundler",
     "allowImportingTsExtensions": true,
     "verbatimModuleSyntax": true,
     "moduleDetection": "force",
-    "noEmit": true,
     "jsx": "react-jsx",
 
-    /* Linting */
+    "composite": true,
+    "declaration": true,
+    "declarationMap": true,
+    "outDir": "dist/app",
+
+    /* emit only declaration files to satisfy the allowImportingTsExtensions requirement */
+    "emitDeclarationOnly": true,
+
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "erasableSyntaxOnly": true,
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true
-  }
+  },
+  "include": ["src/**/*"]
 }
