@@ -110,8 +110,8 @@ Clicking anywhere on a position (Rock/Paper/Scissors) automatically adds a bet o
 Bet can only be increased when position is selected and user clicks on the bet for that position. Increments are only done in multiple of 500.
 
 ## Generic Flow of commands
-npm install
-npm run prettier
-npm run lint (also contains prettier)
-npm run build
-npm run serve
+* npm install
+* npm run prettier
+* npm run lint (also contains prettier)
+* npm run build
+* npm run serve
