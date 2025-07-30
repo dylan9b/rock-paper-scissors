@@ -12,11 +12,11 @@ export const winningOptionSelector = createSelector(
     }
 
     const winningUserOption = userOptions.find(
-      (option) => winsAgainst[option.type] === computerOption
+      (option) => winsAgainst[option.type] === computerOption,
     );
 
     return winningUserOption?.type ?? null;
-  }
+  },
 );
 
 export const tieOptionSelector = createSelector(
@@ -27,11 +27,11 @@ export const tieOptionSelector = createSelector(
     }
 
     const tieUserOption = userOptions.find(
-      (option) => option.type === computerOption
+      (option) => option.type === computerOption,
     );
 
     return tieUserOption?.type ?? null;
-  }
+  },
 );
 
 export const userBattleChoiceDisplaySelector = createSelector(
@@ -51,7 +51,7 @@ export const userBattleChoiceDisplaySelector = createSelector(
     }
 
     return winningOption ?? tieOption;
-  }
+  },
 );
 
 const gameState = (state: RootState) => state.game;
@@ -64,7 +64,7 @@ export const winningMultiplierSelector = createSelector(
         ? state.winningMultiplier.double
         : state.winningMultiplier.single;
     return multiplier;
-  }
+  },
 );
 
 export const gameMetaSelector = createSelector(gameState, (state) => ({

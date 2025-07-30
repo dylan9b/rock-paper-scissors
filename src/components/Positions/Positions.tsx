@@ -13,7 +13,7 @@ export default function Positions() {
       { type: "paper", bet: betIncrement },
       { type: "scissors", bet: betIncrement },
     ],
-    [betIncrement]
+    [betIncrement],
   );
 
   return (

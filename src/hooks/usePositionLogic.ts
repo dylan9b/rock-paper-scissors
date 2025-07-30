@@ -44,7 +44,7 @@ export function usePositionLogic(option: UserOption) {
         UserActions.removeOption({
           ...option,
           bet: selectedOption.bet,
-        })
+        }),
       );
     }
   }, [dispatch, option, selectedOption]);
@@ -60,7 +60,7 @@ export function usePositionLogic(option: UserOption) {
         UserActions.updateOption({
           ...option,
           bet: selectedOption.bet + betIncrement,
-        })
+        }),
       );
     }
   }, [dispatch, option, selectedOption, balance, betIncrement]);

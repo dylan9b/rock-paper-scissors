@@ -30,7 +30,7 @@ const userSlice = createSlice({
       return {
         ...state,
         selectedOptions: state.selectedOptions.filter(
-          (option) => option.type !== action.payload.type
+          (option) => option.type !== action.payload.type,
         ),
         balance: state.balance + action.payload.bet,
       };
@@ -40,7 +40,7 @@ const userSlice = createSlice({
       const { type, bet: newBet } = action.payload;
 
       const selectedOption = state.selectedOptions.find(
-        (option) => option.type === type
+        (option) => option.type === type,
       );
 
       if (!selectedOption) return state;
@@ -51,7 +51,7 @@ const userSlice = createSlice({
       return {
         ...state,
         selectedOptions: state.selectedOptions.map((option) =>
-          option.type === type ? { ...option, bet: newBet } : option
+          option.type === type ? { ...option, bet: newBet } : option,
         ),
         balance: state.balance - betDifference,
       };
@@ -66,7 +66,7 @@ const userSlice = createSlice({
 
     updateBalance: (
       state,
-      action: PayloadAction<{ balance: UserState["balance"] }>
+      action: PayloadAction<{ balance: UserState["balance"] }>,
     ) => {
       return {
         ...state,
@@ -76,7 +76,7 @@ const userSlice = createSlice({
 
     updateWinningAmount: (
       state,
-      action: PayloadAction<{ amount: UserState["winningAmount"] }>
+      action: PayloadAction<{ amount: UserState["winningAmount"] }>,
     ) => {
       return {
         ...state,

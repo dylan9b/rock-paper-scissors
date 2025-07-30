@@ -20,7 +20,7 @@ export default function Header() {
       { label: "Bet", value: status !== "finished" ? userBet : 0 },
       { label: "Wins", value: userWins },
     ],
-    [userBalance, userBet, userWins, status]
+    [userBalance, userBet, userWins, status],
   );
 
   return (

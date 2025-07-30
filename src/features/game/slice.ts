@@ -65,7 +65,7 @@ export const calculateWinnerThunk =
     dispatch(
       UserActions.updateBalance({
         balance: userBalance + totalWinningAmount,
-      })
+      }),
     );
 
     dispatch(UserActions.updateWinningAmount({ amount: totalWinningAmount }));
