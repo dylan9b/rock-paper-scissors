@@ -87,9 +87,13 @@ export default tseslint.config([
 
 <img width="494" height="619" alt="image" src="https://github.com/user-attachments/assets/ebbade48-5dcb-409d-9f54-1b9eb78d3bef" />
 
+## Prettier
+
+<img width="803" height="798" alt="image" src="https://github.com/user-attachments/assets/f6626c77-f202-49f9-9a33-398c964d2d2b" />
+
 ## Lint
 
-<img width="545" height="89" alt="image" src="https://github.com/user-attachments/assets/23bc86ce-722a-4a2b-a2a7-a52bde14
+<img width="486" height="73" alt="image" src="https://github.com/user-attachments/assets/f330af88-741e-469d-8dc9-b21170611dbb" />
 
 ## Build
 
