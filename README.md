@@ -108,3 +108,10 @@ export default tseslint.config([
 Clicking anywhere on a position (Rock/Paper/Scissors) automatically adds a bet of 500. Toggling a position is done by clicking anywhere on the position (except the bet). Any bets set for that position are lost.
 
 Bet can only be increased when position is selected and user clicks on the bet for that position. Increments are only done in multiple of 500.
+
+## Generic Flow of commands
+npm install
+npm run prettier
+npm run lint (also contains prettier)
+npm run build
+npm run serve
